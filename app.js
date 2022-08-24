@@ -15,10 +15,13 @@ connectDB()
 app.engine('.hbs', exphbs.engine({ defaultLayout: 'main', extname: '.hbs' }));
 app.set('view engine', '.hbs');
 
-
+//logging
 if(process.env.NODE_ENV === 'development'){
     app.use(morgan('dev'))
 }
+
+//routes
+app.use('/', require('./routes/index'))
 
 
 const PORT = process.env.PORT || 5000
